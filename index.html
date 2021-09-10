@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="script.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+  </head>
+  <body>
+    <div class="container" x-data="context()">
+      <div class="top-bar">
+        <button
+          class="mdl-button mdl-js-button"
+          x-on:click="openContact"
+          x-bind:class="{ 'mdl-button--raised mdl-button--colored' : isContact(),'mdl-button--primary': !isContact() }"
+        >
+          Contact Us
+        </button>
+        <button
+          class="mdl-button mdl-js-button"
+          x-on:click="openProduct"
+          x-bind:class="{ 'mdl-button--raised mdl-button--colored' : isProduct(), 'mdl-button--primary': !isProduct()}"
+        >
+          Product Suggestion Form
+        </button>
+      </div>
+      <div class="form-wrap mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text" x-text="title()"></h2>
+        </div>
+        <div class="form-blocks">
+          <div class="name block">
+            <div
+              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label first-name"
+            >
+              <input class="mdl-textfield__input" type="text" id="first-name" />
+              <label class="mdl-textfield__label" for="first-name"
+                >First Name*</label
+              >
+            </div>
+            <div
+              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label last-name"
+            >
+              <input class="mdl-textfield__input" type="text" id="last-name" />
+              <label class="mdl-textfield__label" for="last-name"
+                >Last Name*
+              </label>
+            </div>
+          </div>
+          <div class="email">
+            <div
+              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+            >
+              <input class="mdl-textfield__input" type="text" id="email" />
+              <label class="mdl-textfield__label" for="email">Email*</label>
+            </div>
+          </div>
+          <div class="contact" x-show="isContact()">
+            <div class="reason block">
+              <label for="reason">Contact Reason*</label>
+              <div class="select-wrap">
+                <select name="reason" id="reason">
+                  <option value="Order question">Order question</option>
+                  <option value="Website feedback">Website feedback</option>
+                  <option value="Trouble finding product"
+                    >Trouble finding product</option
+                  >
+                </select>
+              </div>
+            </div>
+            <div
+              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label feedback"
+            >
+              <textarea
+                class="mdl-textfield__input "
+                type="text"
+                rows="3"
+                id="Feedback"
+              ></textarea>
+              <label class="mdl-textfield__label" for="Feedback"
+                >Feedback*</label
+              >
+            </div>
+          </div>
+          <div class="product block" x-show="isProduct()">
+            <div
+              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+            >
+              <textarea
+                class="mdl-textfield__input "
+                type="text"
+                rows="3"
+                id="product"
+              ></textarea>
+              <label class="mdl-textfield__label" for="product"
+                >Product Desired*</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="action block">
+          <button
+            class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </body>
+</html>
