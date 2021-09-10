@@ -1,6 +1,6 @@
 function context() {
   return {
-    show: 'contact',
+    show: '',
     openContact() {
       this.show = 'contact';
     },
