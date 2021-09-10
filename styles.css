@@ -75,6 +75,12 @@
   align-items: center;
   margin: 3rem;
 }
-.mdl-button mdl-js-button{
+.mdl-button.mdl-button--colored{
   background-color: #003d99;
+}
+.mdl-button.mdl-button--colored:hover{
+  background-color: #033279;
+}
+.mdl-button.mdl-button--primary{
+  color:#003d99;
 }
